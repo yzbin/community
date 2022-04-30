@@ -4,10 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.qianhang.community.dto.AccessTokenDTO;
 import com.qianhang.community.dto.GithubUser;
 import okhttp3.*;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 
 @Component
 public class GithubProvider {
