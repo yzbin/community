@@ -2,7 +2,7 @@ package com.qianhang.community.service;
 
 import com.qianhang.community.dto.PaginationDTO;
 import com.qianhang.community.dto.QuestionDTO;
-import com.qianhang.community.mapper.QuestionMpper;
+import com.qianhang.community.mapper.QuestionMapper;
 import com.qianhang.community.mapper.UserMapper;
 import com.qianhang.community.model.Question;
 import com.qianhang.community.model.User;
@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class QuestionService {
     @Autowired
-    private QuestionMpper questionMpper;
+    private QuestionMapper questionMpper;
 
     @Autowired
     private UserMapper userMapper;
@@ -58,5 +58,14 @@ public class QuestionService {
         Integer totalount = questionMpper.countByUserId(userId);
         paginationDTO.setPageination(totalount,page,size);
         return paginationDTO;
+    }
+
+    public QuestionDTO getById(Integer id) {
+        Question question = questionMpper.getById(id);
+        QuestionDTO questionDTO = new QuestionDTO();
+        BeanUtils.copyProperties(question,questionDTO);
+        User user = userMapper.findById(question.getCreator());
+        questionDTO.setUser(user);
+        return questionDTO;
     }
 }
