@@ -6,7 +6,7 @@ import lombok.Data;
 public class Question {
     private Integer id;
     private String title;
-    private String descriptition;
+    private String description;
     private String tag;
     private long gmtCreate;
     private long gmtModified;

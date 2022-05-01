@@ -37,7 +37,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading" th:text="${question.title}"></h4>
-                            <span th:text="${question.descriptition}"></span>
+                            <span th:text="${question.description}"></span>
                             <span style="font-size: 12px" ><span th:text="${question.commentCount}"></span>个回复 <span th:text="${question.viewCount}"></span>次浏览 <span th:text="${#dates.format(question.getGmtModified(),'dd MMMM yyyy')}"></span></span>
                         </div>
                     </div>

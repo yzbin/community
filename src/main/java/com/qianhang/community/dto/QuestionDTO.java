@@ -7,7 +7,7 @@ import lombok.Data;
 public class QuestionDTO {
     private Integer id;
     private String title;
-    private String descriptition;
+    private String description;
     private String tag;
     private long gmtCreate;
     private long gmtModified;
