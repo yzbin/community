@@ -28,4 +28,7 @@ create table user
 );
 ```
 
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+
+
 
