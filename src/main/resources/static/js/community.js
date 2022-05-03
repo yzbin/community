@@ -35,3 +35,19 @@ function post(){
         dataType: "json"
     });
 }
+
+/**
+ * 展开二级评论
+ */
+function collapseCommnt(e) {
+    var id = e.getAttribute("data-id");
+    var comments = $("#comment-"+id);
+    var collapse = e.getAttribute("data-collapse");
+    if(collapse){
+        comments.removeClass("in");
+        e.removeAttribute("data-collapse");
+    }else {
+        comments.addClass("in")
+        e.setAttribute("data-collapse","in");
+    }
+}

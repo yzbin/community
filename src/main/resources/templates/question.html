@@ -69,10 +69,45 @@
 
                                 </div>
                                 <div style="color: #999">
-                                    <span class="glyphicon glyphicon-thumbs-up" style="margin-right: 6px;font-size: 15px;cursor: pointer;"></span>
-                                    <span class="glyphicon glyphicon-comment" style="margin-right: 6px;font-size: 15px;cursor: pointer;"></span>
+                                    <span class="glyphicon glyphicon-thumbs-up"
+                                          style="margin-right: 6px;font-size: 15px;cursor: pointer;"></span>
+                                    <span class="glyphicon glyphicon-comment"
+                                          style="margin-right: 6px;font-size: 15px;cursor: pointer;"
+                                          th:data-id="${comment.id}" onclick="collapseCommnt(this)"></span>
                                     <span class="pull-right"
                                           th:text="${#dates.format(comment.getGmtCreate(),'yyyy-MM-dd')}"></span>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse"
+                                     th:id="${'comment-'+comment.id}"
+                                     style="border-radius: 5px;margin-top: 10px;border:1px solid #eee;padding-top: 15px">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="comment:${comments}">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object img-rounded style=" th:height="38px"
+                                                         th:width="38px"
+                                                         th:src="${comment.user.getAvatarUrl()}">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="media-heading" style="padding-top:12px">
+                                                    <span th:text="${comment.user.name}"></span>
+                                                </h5>
+                                                <div th:text="${comment.content}">
+
+                                                </div>
+                                                <div style="color: #999">
+                                                    <span class="pull-right"  th:text="${#dates.format(comment.getGmtCreate(),'yyyy-MM-dd')}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <input type="text" class="form-control" placeholder="评论一下...">
+                                        <button type="button" class="btn btn-success pull-right">评论</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
